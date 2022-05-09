@@ -15,6 +15,11 @@
 
         nix2luaUtils = prev.callPackage ./lib/utils.nix { inherit nixpkgs; };
 
+        luaConfigBuilder = import ./lib/lua-config-builder.nix {
+          pkgs = prev;
+          lib = prev.lib;
+        };
+
         neovimBuilder = import ./lib/neovim-builder.nix {
           pkgs = prev;
           lib = prev.lib;
